@@ -1,0 +1,64 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Add a row of buttons,...
+
+/* Example usage to add 2 actions buttons in a row:
+
+import Buttons from '@AWT/components/Buttons.astro'
+<Buttons buttons={[
+  { text: 'More Pictures', href: 'galerie-photos-en.html' },
+  { text: 'Contact us', href: 'contact-en.html' }
+]} />
+
+*/
+
+
+interface Props {
+  // the buttons to display
+  buttons: {
+    // the text to display on the button
+    text: string;
+    // the link to navigate to when clicking on the button
+    href: string;
+  }[];
+}
+
+const props = Astro.props as Props;
+
+---
+
+<div class="buttons">
+  {props.buttons.map((button) => (
+    <a href={button.href}>
+      <button>{button.text}</button>
+    </a>
+  ))}
+</div>
+
+
+<style>
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.buttons button {
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 2px solid var(--awt-color);
+  border-radius: 0.5rem;
+  background-color: var(--awt-bg-color-2);
+  font-size: 1rem;
+  font-weight: bold;
+  border-color: var(--awt-color);
+
+  &:hover {
+    background-color: var(--awt-bg-color-3);
+  }
+}
+</style>

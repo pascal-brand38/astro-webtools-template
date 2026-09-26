@@ -1,0 +1,28 @@
+---
+
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Add all country flags to translated url
+
+import type { Config } from '@AWT/ts/types.ts';
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config: Config = configUntyped as Config;
+
+import { Flag } from 'astro-flag'
+import { astroUrlPathnameToTranslatedPath, langFromAstroUrlPathname }  from '@AWT/ts/languages'
+
+const currentLang = langFromAstroUrlPathname(Astro.url.pathname)
+
+---
+
+{ config.languages && config.languages.flags && config.languages.flags.map((flagName, index) => (
+     (currentLang !== config.languages.langs[index]) && (
+          <span> &nbsp; </span>
+          <a href={astroUrlPathnameToTranslatedPath(Astro.url.pathname, config.languages.langs[index])}>
+            <Flag flagName={flagName} />
+          </a>
+    )
+  ))
+}

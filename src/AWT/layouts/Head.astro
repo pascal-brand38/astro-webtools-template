@@ -1,0 +1,61 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Generate the <head> section for each page
+//
+/* Example usage in your Layout.astro file:
+
+import Head from '@AWT/layouts/Head.astro';
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+/---
+<!doctype html>
+<html lang={lang}>
+  <Head title={title} description={description}>
+  </Head>
+  <body>
+    <slot />
+  </body>
+</html>
+*/
+
+import '@AWT/styles/variables-default.css';
+import '@src/config/variables.css';
+import '@AWT/styles/reset.css';
+import '@AWT/styles/style.css'; // is inlined in resulting html file
+import '@src/styles/style.css';
+
+import type { Config } from '@AWT/ts/types.ts';
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config: Config = configUntyped as Config;
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description, } = Astro.props;
+const relCanonical = new URL(Astro.url.pathname, Astro.site);
+
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=4"
+  />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <link rel="canonical" href={relCanonical} />
+  {config.sitemapUrl && <link rel="sitemap" href={config.sitemapUrl} />}
+  {config.faviconUrl && <link rel="icon" type="image/svg+xml" href={config.faviconUrl} />}
+
+  <slot />
+
+</head>

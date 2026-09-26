@@ -1,0 +1,28 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+
+import Head from '@AWT/layouts/Head.astro';
+import Header from '@src/components/Header.astro';
+import Footer from '@src/components/Footer.astro';
+
+import { langFromAstroUrlPathname } from '@AWT/ts/languages'
+const lang = langFromAstroUrlPathname(Astro.url.pathname);
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang={lang}>
+  <Head title={title} description={description}>
+    {/* Add below your specific head links */}
+  </Head>
+  <body>
+    <slot />
+  </body>
+</html>

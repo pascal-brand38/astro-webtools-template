@@ -1,0 +1,77 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Add a single social icon. Used by Socials
+
+// https://github.com/natemoo-re/astro-icon#readme
+// https://icon-sets.iconify.design/
+// pnpm add @iconify-json/mdi
+// packages that can be used: https://www.npmjs.com/search?q=iconify-json
+
+import { Icon } from "astro-icon/components";
+import type { SocialName } from '@AWT/ts/types'
+
+interface Socials {
+  [name: string]: {
+    icon: string,
+    color: string,
+  }
+}
+
+// list socials that are supported.
+// color come from https://materialui.co/socialcolors
+const socials: Socials = {
+  facebook: {
+    icon: "mdi:facebook",
+    color: "#1877F2",
+  },
+  youtube: {
+    icon: "mdi:youtube",
+    color: "#CD201F",
+  }
+}
+
+interface Props {
+  name: SocialName,
+  color?: string,
+  size?: number,
+  href: string,
+}
+
+const {
+  name,
+  color = undefined,
+  size,
+  href,
+} = Astro.props
+
+
+---
+
+<a
+  href={href}
+  aria-label={name}
+  target="_blank"
+  rel="noopener noreferrer">
+
+  <Icon
+    name={socials[name].icon}
+    size={ size ?? 38}
+    color={color ?? socials[name].color}
+    />
+
+</a>
+
+<style>
+svg {
+  /* align the svg vertically */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+</style>

@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) Pascal Brand
+ * MIT License
+ * part of AWT (astro-webtools-template)
+ *
+ * Reset standard css styles
+ */
+
+/* box-sizing reset
+   so that a width of a box include padding and borders, but not margin */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* https://stackoverflow.com/questions/53203111/how-can-i-override-margin-block-start
+   margin and padding resetted to 0 */
+* {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+img {
+  /* https://codepen.io/anon/pen/gNeoQE
+      helps to remove empty space below an image in some cases
+      Note that as it becomes a block (and no more an inline-block), text-align:center does not work anymore */
+  display: block;
+
+  /* https://stackoverflow.com/questions/41297008/should-we-use-max-width-100-to-all-images-in-a-website
+      responsive images */
+  max-width: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* https://github.com/necolas/normalize.css */
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  /* background-color: inherit;  not inherited - cf. https://developer.mozilla.org/fr/docs/Web/CSS/background-color#sp%C3%A9cifications */
+}
+
+a {
+  text-decoration: none;
+}

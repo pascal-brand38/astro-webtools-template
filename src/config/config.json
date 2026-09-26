@@ -1,0 +1,21 @@
+{
+  "sitemapUrl": false,
+  "faviconUrl": false,
+
+  "languages": {
+    "langs": ["en"],
+    "flags": false,
+    "urlLanguageAlgorithm": false
+  },
+
+  "socials": [
+    { "name": "facebook", "href":"https://www.facebook.com" },
+    { "name": "youtube", "href":"https://www.youtube.com" }
+  ],
+
+  "navPages": [
+    {
+      "fr": { "url": "/", "alt": "Home" }
+    }
+  ]
+}

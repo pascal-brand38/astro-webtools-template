@@ -1,0 +1,101 @@
+/*
+ * Copyright (c) Pascal Brand
+ * MIT License
+ * part of AWT (astro-webtools-template)
+ *
+ * Defines default css styles for the AWT.
+ *
+ * awt stands for AWT
+ * these are the styles defined by the AWT
+ */
+
+:root {
+  font-size: var(--awt-root-font-size);
+}
+
+body {
+  font-size: var(--awt-body-font-size);
+  font-weight: var(--awt-font-weight-m);
+  font-family: var(--awt-font-family);
+  line-height: var(--awt-line-height);
+  background-color: var(--awt-bg-color);
+  color: var(--awt-color);
+}
+
+.awt-margin-m  { margin: var(--awt-size-margin-m) 0; }
+.awt-margin-s  { margin: var(--awt-size-margin-s) 0; }
+
+.awt-container {
+  /* "big" margin on top and bottom of containers,
+     and "auto" to center the container on the page */
+  margin: var(--awt-margin-xxl) auto;
+  padding: 0 1.1rem; /* left and right padding so that the text does not start at the border of the screen */
+  width: 100%; /* full width */
+  max-width: var(--awt-container-max-width); /* max width is limited (1024px by default) */
+
+  text-align: var(--awt-container-text-align);
+}
+
+.awt-container p {
+  margin-top: var(--awt-margin-m);
+  margin-bottom: var(--awt-margin-m);
+}
+
+.awt-container ul {
+  list-style: disc; /* inside so that the disc is inside the div, not outside */
+  margin-left: 1em; /* https://stackoverflow.com/questions/11556493/second-line-in-li-starts-under-the-bullet-after-css-reset */
+  padding-left: 0.5ch; /* add 0.5ch, otherwise helf of the disc is outside the div */
+  margin-bottom: var(--awt-margin-m);
+}
+
+.awt-container h1,
+.awt-container h2,
+.awt-container h3 {
+  font-family: var(--awt-font-family-2);
+  font-size: 2.09rem;
+  font-weight: bold;
+  color: var(--awt-color-2);
+  line-height: 110%;
+  text-align: left;
+  margin: 1.67rem 0;
+}
+
+.awt-container h3 {
+  font-size: 1.65rem;
+  margin: 1.3rem 0;
+}
+
+
+/* table */
+.awt-container table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  margin-bottom: var(--awt-margin-m);
+}
+
+.awt-container td,
+.awt-container th {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.awt-container th {
+  font-weight: bold;
+  white-space: nowrap; /* title on s aingle line, whatever the size of the screen and the other cells content */
+  padding-right: 0.4rem; /* title is on the row, so padding at right */
+}
+.awt-container td {
+  padding-left: 0.4rem;
+}
+
+.awt-container tr {
+  border-bottom: 1px solid var(--awt-color-2);
+}
+.awt-container .black-line {
+  border-bottom: 1px solid var(--awt-color-2);
+}

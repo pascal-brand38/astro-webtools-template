@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Pascal Brand
+ * MIT License
+ *
+ * Read from AWT (astro-webtools-template)
+ * Redefine AWT variables defined in @AWT/styles/variables-default.css
+ */
+
+/*
+  Screen sizes
+  - 0px to 600px: small screen
+  - 601px to 992px: medium screen
+  - 993px and up: large screen
+*/

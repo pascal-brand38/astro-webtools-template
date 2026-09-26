@@ -1,0 +1,24 @@
+---
+
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Add all socials defined in @src/config/config.json
+
+import Social from './Social.astro';
+import type { Config } from '@AWT/ts/types.ts';
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config: Config = configUntyped as Config;
+
+---
+
+{ config.socials && (
+<>
+{
+  config.socials.map((social) => (
+    <Social name={social.name} href={social.href} color={social.color} size={social.size} />
+  ))
+}
+</>
+)}

@@ -1,0 +1,87 @@
+/*
+ * Copyright (c) Pascal Brand
+ * MIT License
+ * part of AWT (astro-webtools-template)
+ *
+ * Defines variables for default css styles for the AWT.
+ * These values must be updated in @src/config/variables.css to customize the styles of the AWT.
+ */
+
+/*
+  Screen sizes
+  - 0px to 600px: small screen
+  - 601px to 992px: medium screen
+  - 993px and up: large screen
+*/
+
+/* default values - applies to small sizes, and overloaded if required */
+:root {
+  --awt-size-l: 1.1rem;
+  --awt-size-m: 1rem;
+  --awt-size-s: 0.88rem;
+  --awt-size-xs: 0.80rem;
+
+  /* colors - names from https://html-color-codes.info/color-names */
+  --awt-color: Black;
+  --awt-color-2: Blue;
+  --awt-bg-color: LightBlue;
+  --awt-bg-color-2: LightBlue;
+  --awt-bg-color-3: Blue;
+
+  /* fonts
+     Google font (cf. https://docs.astro.build/en/guides/fonts/)
+        npm install @fontsource/kalam
+        in layout.astro: import '@fontsource/kalam';
+        in css;   font-family: "Kalam", cursive;
+        in layout.astro, to preload (optionaly):
+          import kalamWoff2 from '@fontsource/kalam/files/kalam-latin-400-normal.woff2?url';
+          <link rel="preload" as="font" type="font/woff2" href={kalamWoff2} crossorigin="anonymous" />
+  */
+  --awt-font-family: system-ui, sans-serif; /* https://modernfontstacks.com */
+  --awt-font-family-2: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+  --awt-font-family-3: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+
+  /* font size and weight */
+  --awt-root-font-size: 16px;
+  --awt-body-font-size: var(--awt-size-l);
+  --awt-font-weight-m: 400;
+  --awt-line-height: 1.5;
+
+  /* margin */
+  --awt-margin-xxl: 24px;
+  --awt-size-margin-l: var(--awt-size-l);
+  --awt-size-margin-m: var(--awt-size-m);
+  --awt-size-margin-s: var(--awt-size-s);
+
+  --awt-container-text-align: left; /* text alignment of the main container */
+  --awt-container-max-width: 1024px; /* max width of the container, to limit it on large screens */
+}
+
+/* small screen only */
+@media only screen and (max-width: 600px) {
+  .hide-on-small-and-down {
+    display: none;
+  }
+}
+
+/* medium screen and large screen */
+@media (min-width: 601px) {
+  :root {
+  }
+  .hide-on-med-and-up {
+    display: none;
+  }
+}
+
+/* medium screen only */
+@media (min-width: 601px) and (max-width: 992px) {
+  :root {
+  }
+}
+
+/* large screen only */
+@media (min-width: 993px) {
+  :root {
+    --awt-container-text-align: justify; /* text alignment of the main container */
+  }
+}
