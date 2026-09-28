@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.2",
+    "@astrojs/partytown": "^2.1.8",
     "@iconify-json/mdi": "^1.2.3",
     "astro": "^7.3.5",
     "astro-flag": "^1.0.0",

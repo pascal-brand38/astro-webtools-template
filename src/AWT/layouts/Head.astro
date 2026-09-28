@@ -30,6 +30,7 @@ import '@AWT/styles/reset.css';
 import '@AWT/styles/style.css'; // is inlined in resulting html file
 import '@src/styles/style.css';
 
+import GoogleAnalytics from '@AWT/components/GoogleAnalytics.astro';
 import type { Config } from '@AWT/ts/types.ts';
 import configUntyped from '@src/config/config.json' with { type: 'json' };
 const config: Config = configUntyped as Config;
@@ -55,6 +56,7 @@ const relCanonical = new URL(Astro.url.pathname, Astro.site);
   <link rel="canonical" href={relCanonical} />
   {config.sitemapUrl && <link rel="sitemap" href={config.sitemapUrl} />}
   {config.faviconUrl && <link rel="icon" type="image/svg+xml" href={config.faviconUrl} />}
+  <GoogleAnalytics />
 
   <slot />
 

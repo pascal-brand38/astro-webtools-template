@@ -17,5 +17,7 @@
     {
       "fr": { "url": "/", "alt": "Home" }
     }
-  ]
+  ],
+
+  "googleAnalyticsMesurementId": false
 }

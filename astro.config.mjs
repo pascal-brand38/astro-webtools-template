@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown'; // used for google analytics. Cf https://ricostacruz.com/posts/google-analytics-in-astro
 import icon from "astro-icon";
 
 // https://astro.build/config
@@ -27,6 +28,9 @@ export default defineConfig({
 
   integrations: [
     mdx(),
+    partytown({ config: { forward: ['dataLayer.push'] } }),
     icon(),
+
+		// add your site specific integrations
   ],
 });

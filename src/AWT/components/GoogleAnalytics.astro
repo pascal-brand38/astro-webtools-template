@@ -1,0 +1,29 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Add Google Analytics, if config.googleAnalyticsMesurementId is provided, and
+// if the site is in production mode
+
+import type { Config } from '@AWT/ts/types.ts';
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config: Config = configUntyped as Config;
+
+---
+
+{ config.googleAnalyticsMesurementId && import.meta.env.MODE === 'production' && (
+
+<script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsMesurementId}`}>
+</script>
+<script is:inline type="text/partytown" data-ga-measurement-id={config.googleAnalyticsMesurementId} id="ga-init">
+  const measurementId = document.getElementById('ga-init').getAttribute('data-ga-measurement-id');
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments); // eslint-disable-line
+  }
+  gtag('js', new Date());
+  gtag('config', measurementId);
+</script>
+
+)}

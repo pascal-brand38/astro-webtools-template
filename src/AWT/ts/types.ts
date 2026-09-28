@@ -52,4 +52,7 @@ export interface Config {
   }[],
 
   navPages?: NavUrlType[] | false,
+
+  /** Google Analytics Mesurement Id, which is something like G-xxxxxxxxxx */
+  googleAnalyticsMesurementId?: string | false,
 }
