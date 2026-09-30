@@ -1,15 +1,24 @@
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+
 // @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown'; // used for google analytics. Cf https://ricostacruz.com/posts/google-analytics-in-astro
 import icon from "astro-icon";
 
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config = configUntyped;
+
+// add your site specific import and variables
+
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'never', // generates route /index-en.html, but not /index-en.html
-  outDir: 'www', // output directory for the build command
-  site: 'https://pascal-brand38.github.io',
-  base: 'astro-webtools-template',
+  outDir: import.meta.env.PROD ? './www' : './www-localhost', // output directory for the build command
+  site: import.meta.env.PROD ? config.site : 'http://localhost',
+  base: config.base,
   vite: {
     build: {
       // cf. https://vitejs.dev/config/build-options.html#build-assetsinlinelimit
@@ -25,6 +34,8 @@ export default defineConfig({
   build: {
     format: 'file'
   },
+
+  // add your site specific configuration
 
   integrations: [
     mdx(),

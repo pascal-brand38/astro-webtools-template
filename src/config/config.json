@@ -1,4 +1,7 @@
 {
+  "site": "https://pascal-brand38.github.io",
+  "base": "astro-webtools-template",
+
   "sitemapUrl": false,
   "faviconUrl": false,
 
@@ -19,5 +22,7 @@
     }
   ],
 
-  "googleAnalyticsMesurementId": false
+  "googleAnalyticsMesurementId": false,
+
+  "custom": false
 }

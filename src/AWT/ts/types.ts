@@ -26,6 +26,9 @@ export type SocialName = 'facebook' | 'youtube'
  * It is the object type stored in @src/config/config.json
  */
 export interface Config {
+  site: string,
+  base?: string | false,
+
   /** sitemap path in the url
    * @example "/sitemap.xml"
    * @default false, meaning no sitemap is used
@@ -55,4 +58,6 @@ export interface Config {
 
   /** Google Analytics Mesurement Id, which is something like G-xxxxxxxxxx */
   googleAnalyticsMesurementId?: string | false,
+
+  custom: {},
 }
