@@ -2,6 +2,7 @@
 .astro/
 dist
 www
+www-localhost
 
 # dependencies
 node_modules/

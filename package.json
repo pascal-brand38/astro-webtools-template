@@ -6,7 +6,9 @@
     "clean": "rm -rf .astro node_modules/.vite",
     "dev": "astro dev --force",
     "build": "astro build --force",
-    "preview": "astro preview"
+    "builddev": "astro build --force --devOutput",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.2",
