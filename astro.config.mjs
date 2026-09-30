@@ -18,7 +18,7 @@ export default defineConfig({
   trailingSlash: 'never', // generates route /index-en.html, but not /index-en.html
   outDir: import.meta.env.PROD ? './www' : './www-localhost', // output directory for the build command
   site: import.meta.env.PROD ? config.site : 'http://localhost',
-  base: config.base,
+  base: config.base ? `${config.base}` : undefined,
   vite: {
     build: {
       // cf. https://vitejs.dev/config/build-options.html#build-assetsinlinelimit
