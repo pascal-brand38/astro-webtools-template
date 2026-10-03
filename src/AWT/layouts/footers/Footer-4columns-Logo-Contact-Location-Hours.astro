@@ -1,0 +1,150 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Footer which is made of 1, 2 or 4 columns depending on the screen size:
+// 1st column: the logo
+// 2nd column: contact us: address, phone, email
+// 3rd column: location (which town is closed from)
+// 4th column: opening hours
+//
+// logo name is in @src/config/config.json, as "logo", starting wih 'img/'
+
+import { translate } from '@AWT/ts/translate';
+import type { LangType } from '@AWT/ts/languages'
+import AWTImage from '@AWT/components/AWTImage.astro'
+import { langFromAstroUrlPathname }  from '@AWT/ts/languages'
+import { digits2, astroBuildTimeConstants } from '@src/astro-build-time-constants';
+import { Icon } from "astro-icon/components";   // Material Design Icons (mdi) icons can be chosen from https://icon-sets.iconify.design/mdi/
+
+import type { Config } from '@AWT/ts/types.ts';
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config: Config = configUntyped as Config;
+
+interface Props {
+  location: string[],
+  openinghours: string[],
+}
+const props = Astro.props;
+const lang = langFromAstroUrlPathname(Astro.url.pathname)
+---
+
+{/* Horizontal line - width="device-width" not to have a line+padding longer than the width */}
+<hr />
+
+<footer class="awt-container awt-footer__container">
+  <div class="awt-footer-grid">
+    { config.logo &&
+    <div class="hide-on-small-and-down" style="width: 100%; max-width: 200px; height: auto;">
+      <AWTImage name={config.logo} alt={config.companyName ? config.companyName : ''} />
+    </div>
+    }
+
+    { (config.address) &&
+    <div>
+      <p class="title-col">
+        {translate('Nous contacter', lang)}&nbsp;<Icon name="mdi:speak-outline" size="24px"/>
+      </p>
+      <ul>
+        <li> {config.address.streetAddress1} </li>
+        {config.address.streetAddress2 && (<li> {config.address.streetAddress2} </li>)}
+        <li> {config.address.postalCode} {config.address.addressLocality} </li>
+        {config.address.extra && (<li> {config.address.extra} </li>)}
+        { (config.phone) &&
+        <li>
+          {translate('Téléphone', lang)}: { config.phone.map(d => <span> {d} </span>) }
+        </li>
+        }
+        { config.email &&
+        <li>
+          Email: { config.email.map(d => <span>{d}</span>) }
+        </li>
+        }
+      </ul>
+    </div>
+    }
+
+    <div>
+      <p class="title-col">{translate('Localisation', lang)} <Icon name="mdi:location" size="24px"/> </p>
+      { props.location.map(loc => <div> {loc} </div>) }
+    </div>
+
+    <div>
+      <p class="title-col">
+        {translate('Horaires', lang)}&nbsp;<Icon name="mdi:clock-outline" size="24px"/>
+      </p>
+      { props.openinghours.map(hours => <div> {hours} </div>) }
+    </div>
+  </div>
+
+  <div class="copyright">
+    { (config.siret) &&
+    <div> SIRET N°{config.siret.map(d => <span>{d}</span>) } </div>
+    }
+    <div>
+    (C) 2019-{astroBuildTimeConstants.internal.fullYear} {config.companyName} -
+    &thinsp;
+    {digits2(astroBuildTimeConstants.internal.date)}/{digits2(astroBuildTimeConstants.internal.month)}
+    &thinsp;
+    {digits2(astroBuildTimeConstants.internal.hours)}:{digits2(astroBuildTimeConstants.internal.minutes)}:{digits2(astroBuildTimeConstants.internal.seconds)}
+    </div>
+  </div>
+</footer>
+
+{/* end of footer */}
+
+<style>
+  .awt-footer__container {
+    font-size: var(--awt-size-s);
+  }
+
+  .awt-footer__container p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .awt-footer__container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .awt-footer-grid {
+    display: flex; /* IE11 support: when display:grid is not supported */
+    flex-wrap: wrap;
+
+    display: grid;
+    grid-template-columns: 1fr; /* 1-columns by default */
+    grid-gap: 1rem;
+  }
+
+  @media (min-width: 601px) {
+    .awt-footer-grid {
+      grid-template-columns: 1fr 1fr; /* 2-columns on medium screen */
+    }
+  }
+  @media (min-width: 993px) {
+    .awt-footer-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr; /* 4-columns on large screen */
+    }
+  }
+
+  .awt-footer-grid .title-col {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  footer .copyright {
+    font-size: var(--awt-size-xs);
+    margin-top: var(--awt-margin-m);
+    text-align: center;
+  }
+
+  svg {
+    /* align the svg vertically */
+    display: inline-block;
+    vertical-align: baseline;
+  }
+</style>

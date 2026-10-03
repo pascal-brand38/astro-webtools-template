@@ -1,0 +1,119 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Header which is made of:
+// Mobile: centered logo, the centered phone and address, then centered socials and translation flag
+// Desktop: logo on the left and phone, adress, socials and translation flag on the right
+// This is then followed by the NavBarPureCss
+//
+// logo name is in @src/config/config.json, as "logo", starting wih 'img/'
+
+import Socials from '@AWT/components/Socials.astro'
+import TranslateFlags from '@AWT/components/TranslateFlags.astro'
+import NavPureCss from '@AWT/components/NavBarPureCss.astro';
+import AWTImage from '@AWT/components/AWTImage.astro'
+import { Icon } from "astro-icon/components";   // Material Design Icons (mdi) icons can be chosen from https://icon-sets.iconify.design/mdi/
+
+import type { Config } from '@AWT/ts/types.ts';
+import configUntyped from '@src/config/config.json' with { type: 'json' };
+const config: Config = configUntyped as Config;
+
+---
+
+{/*
+in case the line is not really at the top of the page, check whether a
+template of an html file is UTF8 with BOM encoded. As the BOM adds extra char which are not visible, the
+margin may be wrong because of it.
+If so, fix it using notepad++:
+- To check if BOM character exists, open the file in Notepad++ and look at the bottom right corner.
+  If it says UTF-8-BOM then the file contains BOM character.
+- To remove BOM character, go to Encoding and select Encode in UTF-8.
+- Save the file and re-try the import.
+*/}
+<hr style="margin-top:2px;" />
+
+<header class="awt-container awt-header__container">
+  { config.logo &&
+  <div class="awt-header__logo">
+    <AWTImage name={config.logo} alt={config.companyName ? config.companyName : ''} />
+  </div>
+  }
+
+  <div class="awt-header__contact awt-margin-s">
+    { (config.phone) &&
+    <div>
+      <Icon name="mdi:phone" size="2rem"/> { config.phone.map(d => <span> {d} </span>) }
+    </div>
+    }
+
+    { (config.address) &&
+    <div class="awt-margin-s">
+      {config.address.streetAddress1}<br />
+      {config.address.streetAddress2 && (<span>{config.address.streetAddress2} <br /></span>)}
+      {config.address.postalCode} {config.address.addressLocality}
+      {config.address.extra && (<span> <br/> {config.address.extra} </span>)}
+    </div>
+    }
+
+    <div>
+      <Socials />
+      &nbsp; &nbsp; { /* space */ }
+      <TranslateFlags />
+    </div>
+  </div>
+</header>
+
+<NavPureCss />
+
+<style>
+  /*
+    container is a centered column on mobile
+    it will contain the logo, and then the contact information
+  */
+  .awt-header__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  @media (min-width: 601px) {
+    .awt-header__container {
+      /* on medium screen and up, the container is a row, containing the logo on the left,
+       and contact information on the right */
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .awt-header__logo {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  /* on mobile, the contact information is centered */
+  .awt-header__contact {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+
+  }
+
+  @media (min-width: 601px) {
+    .awt-header__contact {
+      /* on medium screen and up, contact information are right-aligned */
+      text-align: right;
+    }
+  }
+  svg {
+    /* align the svg vertically */
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+</style>
