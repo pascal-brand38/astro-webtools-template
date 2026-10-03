@@ -1,0 +1,38 @@
+---
+// Copyright (c) Pascal Brand
+// MIT License
+// part of AWT (astro-webtools-template)
+//
+// Add an image, such a logo
+
+
+/* Example usage to add 2 actions buttons in a row:
+
+import Buttons from '@AWT/components/Buttons.astro'
+<Buttons buttons={[
+  { text: 'More Pictures', href: 'galerie-photos-en.html' },
+  { text: 'Contact us', href: 'contact-en.html' }
+]} />
+
+*/
+
+import { Image } from 'astro:assets';
+const images = import.meta.glob<{ default: ImageMetadata }>('../../img/**/*.{jpeg,jpg,png,gif,svg}');
+
+interface Props {
+  name: string,
+  alt?: string,
+}
+
+const props = Astro.props as Props;
+
+---
+
+<Image src={images[`../../${props.name}`]()} alt={props.alt ?? ''} />
+
+<style>
+  img {
+    width: 100%;
+    height: auto;
+  }
+</style>
