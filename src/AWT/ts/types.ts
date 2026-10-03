@@ -8,9 +8,9 @@ import type { FlagName } from "astro-flag";
 
 export interface LanguageType {
   langs: string[],
-  flags: FlagName[],
+  flags?: FlagName[] | false,
 
-  urlLanguageAlgorithm?: '-lang.html'
+  urlLanguageAlgorithm?: '-lang.html' | false
 }
 
 export interface NavUrlType {
@@ -28,6 +28,13 @@ export type SocialName = 'facebook' | 'youtube'
 export interface Config {
   site: string,
   base?: string | false,
+  companyName?: string | false,
+
+  /** logo file, stored in @src/img/** /*.{jpeg,jpg,png,gif,svg}
+   * It is the path from img, that is it starts with 'img/'
+   * @example 'img/logo/my-logo.svg'
+   */
+  logo?: string | false,
 
   /** sitemap path in the url
    * @example "/sitemap.xml"
@@ -59,5 +66,17 @@ export interface Config {
   /** Google Analytics Mesurement Id, which is something like G-xxxxxxxxxx */
   googleAnalyticsMesurementId?: string | false,
 
-  custom: {},
+  address?: false | {
+    streetAddress1: string,
+    streetAddress2?: string,
+    addressLocality: string,
+    postalCode: string,
+    addressCountry: string,
+    extra?:string,
+  }
+  phone?: string[] | false,
+  email?: string[] | false,
+  siret?: string[] | false,
+
+  custom?: false | {},
 }
