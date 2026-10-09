@@ -78,5 +78,5 @@ export interface Config {
   email?: string[] | false,
   siret?: string[] | false,
 
-  custom?: false | {},
+  custom?: false | any,
 }
