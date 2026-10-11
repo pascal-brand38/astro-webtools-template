@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "clean": "rm -rf .astro node_modules/.vite",
+    "biome": "biome check --write",
     "dev": "astro dev --force",
     "build": "astro build --force",
     "builddev": "astro build --force --devOutput",

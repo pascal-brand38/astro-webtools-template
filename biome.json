@@ -1,37 +1,50 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"files": {
-		"ignoreUnknown": false
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "space"
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"preset": "recommended"
-		}
-	},
-	"javascript": {
+  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+		"lineWidth": 120
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended"
+    }
+  },
+	"css": {
 		"formatter": {
 			"quoteStyle": "single"
 		}
 	},
-	"assist": {
-		"enabled": true,
-		"actions": {
-			"source": {
-				"organizeImports": "on"
-			}
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+			"trailingCommas": "all"
+    }
+  },
+	"json": {
+		"formatter": {
+			"trailingCommas": "all"
 		}
 	},
-	"overrides": [
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "overrides": [
     {
       "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
       "linter": {
