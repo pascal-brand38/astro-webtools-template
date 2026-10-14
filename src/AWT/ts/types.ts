@@ -78,5 +78,6 @@ export interface Config {
   email?: string[] | false,
   siret?: string[] | false,
 
+  // biome-ignore lint/suspicious/noExplicitAny: any object is allowed here
   custom?: false | any,
 }

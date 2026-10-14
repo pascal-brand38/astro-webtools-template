@@ -11,31 +11,34 @@
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-		"lineWidth": 120
+    "lineWidth": 120
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "preset": "recommended"
+      "preset": "recommended",
+      "suspicious": {
+        "noEmptyBlock": "off"
+      }
     }
   },
-	"css": {
-		"formatter": {
-			"quoteStyle": "single"
-		}
-	},
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
       "semicolons": "asNeeded",
-			"trailingCommas": "all"
+      "trailingCommas": "all"
     }
   },
-	"json": {
-		"formatter": {
-			"trailingCommas": "all"
-		}
-	},
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  },
   "assist": {
     "enabled": true,
     "actions": {
