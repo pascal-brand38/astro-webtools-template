@@ -3,14 +3,14 @@
 // part of AWT (astro-webtools-template)
 
 // @ts-check
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import buildTimeConstants from 'astro-build-time-constants';
-import partytown from '@astrojs/partytown'; // used for google analytics. Cf https://ricostacruz.com/posts/google-analytics-in-astro
-import icon from "astro-icon";
+import { defineConfig } from 'astro/config'
+import mdx from '@astrojs/mdx'
+import buildTimeConstants from 'astro-build-time-constants'
+import partytown from '@astrojs/partytown' // used for google analytics. Cf https://ricostacruz.com/posts/google-analytics-in-astro
+import icon from 'astro-icon'
 
-import configUntyped from '@src/config/config.json' with { type: 'json' };
-const config = configUntyped;
+import configUntyped from '@src/config/config.json' with { type: 'json' }
+const config = configUntyped
 
 // add your site specific import and variables
 
@@ -25,15 +25,15 @@ export default defineConfig({
       // cf. https://vitejs.dev/config/build-options.html#build-assetsinlinelimit
       // which is the max size, in bytes, of a file to be inlined as base64 in the code. The default is 4096 (4kb)
       rollupOptions: {
-        external: [ 'fsevents', '@astrojs/compiler-rs' ],
-      }
+        external: ['fsevents', '@astrojs/compiler-rs'],
+      },
     },
   },
 
   // generate .html routes
   // cf. https://stackoverflow.com/questions/79770159/migrating-from-vanilla-html-to-astro-keep-route-name-legacy
   build: {
-    format: 'file'
+    format: 'file',
   },
 
   // add your site specific configuration
@@ -42,9 +42,8 @@ export default defineConfig({
     mdx(),
     partytown({ config: { forward: ['dataLayer.push'] } }),
     icon(),
-    buildTimeConstants({
-    }),
+    buildTimeConstants({}),
 
-		// add your site specific integrations
+    // add your site specific integrations
   ],
-});
+})

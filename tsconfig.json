@@ -3,10 +3,9 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-      "paths": {
-        "@src/*": ["./src/*"],
-        "@AWT/*": ["./src/AWT/*"]
-      }
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@AWT/*": ["./src/AWT/*"]
     }
-
+  }
 }

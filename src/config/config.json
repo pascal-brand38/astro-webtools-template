@@ -14,8 +14,8 @@
   },
 
   "socials": [
-    { "name": "facebook", "href":"https://www.facebook.com" },
-    { "name": "youtube", "href":"https://www.youtube.com" }
+    { "name": "facebook", "href": "https://www.facebook.com" },
+    { "name": "youtube", "href": "https://www.youtube.com" }
   ],
 
   "navPages": [

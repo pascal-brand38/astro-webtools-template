@@ -10,13 +10,13 @@
 // pnpm add @iconify-json/mdi
 // packages that can be used: https://www.npmjs.com/search?q=iconify-json
 
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components'
 import type { SocialName } from '@AWT/ts/types'
 
 interface Socials {
   [name: string]: {
-    icon: string,
-    color: string,
+    icon: string
+    color: string
   }
 }
 
@@ -24,30 +24,23 @@ interface Socials {
 // color come from https://materialui.co/socialcolors
 const socials: Socials = {
   facebook: {
-    icon: "mdi:facebook",
-    color: "#1877F2",
+    icon: 'mdi:facebook',
+    color: '#1877F2',
   },
   youtube: {
-    icon: "mdi:youtube",
-    color: "#CD201F",
-  }
+    icon: 'mdi:youtube',
+    color: '#CD201F',
+  },
 }
 
 interface Props {
-  name: SocialName,
-  color?: string,
-  size?: number,
-  href: string,
+  name: SocialName
+  color?: string
+  size?: number
+  href: string
 }
 
-const {
-  name,
-  color = undefined,
-  size,
-  href,
-} = Astro.props
-
-
+const { name, color = undefined, size, href } = Astro.props
 ---
 
 <a

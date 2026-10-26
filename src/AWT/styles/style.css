@@ -22,8 +22,12 @@ body {
   color: var(--awt-color);
 }
 
-.awt-margin-m  { margin: var(--awt-size-margin-m) 0; }
-.awt-margin-s  { margin: var(--awt-size-margin-s) 0; }
+.awt-margin-m {
+  margin: var(--awt-size-margin-m) 0;
+}
+.awt-margin-s {
+  margin: var(--awt-size-margin-s) 0;
+}
 
 .awt-container {
   /* "big" margin on top and bottom of containers,
@@ -64,7 +68,6 @@ body {
   font-size: 1.65rem;
   margin: 1.3rem 0;
 }
-
 
 /* table */
 .awt-container table {

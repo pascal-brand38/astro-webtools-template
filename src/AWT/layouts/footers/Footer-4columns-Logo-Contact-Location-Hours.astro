@@ -11,21 +11,21 @@
 //
 // logo name is in @src/config/config.json, as "logo", starting wih 'img/'
 
-import { translate } from '@AWT/ts/translate';
+import { translate } from '@AWT/ts/translate'
 import AWTImage from '@AWT/components/AWTImage.astro'
-import { langFromAstroUrlPathname }  from '@AWT/ts/languages'
-import { digits2, astroBuildTimeConstants } from '@src/astro-build-time-constants';
-import { Icon } from "astro-icon/components";   // Material Design Icons (mdi) icons can be chosen from https://icon-sets.iconify.design/mdi/
+import { langFromAstroUrlPathname } from '@AWT/ts/languages'
+import { digits2, astroBuildTimeConstants } from '@src/astro-build-time-constants'
+import { Icon } from 'astro-icon/components' // Material Design Icons (mdi) icons can be chosen from https://icon-sets.iconify.design/mdi/
 
-import type { Config } from '@AWT/ts/types.ts';
-import configUntyped from '@src/config/config.json' with { type: 'json' };
-const config: Config = configUntyped as Config;
+import type { Config } from '@AWT/ts/types.ts'
+import configUntyped from '@src/config/config.json' with { type: 'json' }
+const config: Config = configUntyped as Config
 
 interface Props {
-  location: string[],
-  openinghours: string[],
+  location: string[]
+  openinghours: string[]
 }
-const props = Astro.props;
+const props = Astro.props
 const lang = langFromAstroUrlPathname(Astro.url.pathname)
 ---
 

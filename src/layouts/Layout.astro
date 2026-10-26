@@ -2,19 +2,18 @@
 // Copyright (c) Pascal Brand
 // MIT License
 
-import Head from '@AWT/layouts/Head.astro';
-import Header from '@AWT/layouts/headers/Header-2Columns-NavBar.astro';
-import Footer from '@AWT/layouts/footers/Footer-4columns-Logo-Contact-Location-Hours.astro';
+import Head from '@AWT/layouts/Head.astro'
+import Header from '@AWT/layouts/headers/Header-2Columns-NavBar.astro'
+import Footer from '@AWT/layouts/footers/Footer-4columns-Logo-Contact-Location-Hours.astro'
 
 import { langFromAstroUrlPathname } from '@AWT/ts/languages'
-const lang = langFromAstroUrlPathname(Astro.url.pathname);
+const lang = langFromAstroUrlPathname(Astro.url.pathname)
 
 interface Props {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
-const { title, description } = Astro.props;
-
+const { title, description } = Astro.props
 ---
 
 <!doctype html>

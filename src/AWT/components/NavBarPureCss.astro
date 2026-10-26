@@ -11,13 +11,12 @@
 
 */
 
-import { langFromAstroUrlPathname } from '@AWT/ts/languages.ts';
-import type { Config } from '@AWT/ts/types.ts';
-import configUntyped from '@src/config/config.json' with { type: 'json' };
-const config: Config = configUntyped as Config;
+import { langFromAstroUrlPathname } from '@AWT/ts/languages.ts'
+import type { Config } from '@AWT/ts/types.ts'
+import configUntyped from '@src/config/config.json' with { type: 'json' }
+const config: Config = configUntyped as Config
 
-const lang = langFromAstroUrlPathname(Astro.url.pathname);
-
+const lang = langFromAstroUrlPathname(Astro.url.pathname)
 ---
 
 { (config.navPages) &&

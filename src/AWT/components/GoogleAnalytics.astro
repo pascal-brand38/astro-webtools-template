@@ -6,10 +6,9 @@
 // Add Google Analytics, if config.googleAnalyticsMesurementId is provided, and
 // if the site is in production mode
 
-import type { Config } from '@AWT/ts/types.ts';
-import configUntyped from '@src/config/config.json' with { type: 'json' };
-const config: Config = configUntyped as Config;
-
+import type { Config } from '@AWT/ts/types.ts'
+import configUntyped from '@src/config/config.json' with { type: 'json' }
+const config: Config = configUntyped as Config
 ---
 
 { config.googleAnalyticsMesurementId && import.meta.env.MODE === 'production' && (

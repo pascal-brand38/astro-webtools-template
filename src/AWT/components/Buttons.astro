@@ -15,19 +15,17 @@ import Buttons from '@AWT/components/Buttons.astro'
 
 */
 
-
 interface Props {
   // the buttons to display
   buttons: {
     // the text to display on the button
-    text: string;
+    text: string
     // the link to navigate to when clicking on the button
-    href: string;
-  }[];
+    href: string
+  }[]
 }
 
-const props = Astro.props as Props;
-
+const props = Astro.props as Props
 ---
 
 <div class="buttons">

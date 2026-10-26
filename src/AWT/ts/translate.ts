@@ -2,7 +2,7 @@
 // MIT License
 // part of AWT (astro-webtools-template)
 
-import translation from '@src/config/translation.json' with { type: 'json' };
+import translation from '@src/config/translation.json' with { type: 'json' }
 import type { LangType } from '@AWT/ts/languages'
 
 function translate(textInDefaultLanguage: string, lang: LangType) {
@@ -14,6 +14,4 @@ function translate(textInDefaultLanguage: string, lang: LangType) {
   return result[lang as keyof typeof result] || textInDefaultLanguage
 }
 
-export {
-  translate
-}
+export { translate }

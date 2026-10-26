@@ -4,20 +4,20 @@
 //
 // Define types used in the AWT project. These types are used for type checking and code completion in TypeScript.
 
-import type { FlagName } from "astro-flag";
+import type { FlagName } from 'astro-flag'
 
 export interface LanguageType {
-  langs: string[],
-  flags?: FlagName[] | false,
+  langs: string[]
+  flags?: FlagName[] | false
 
   urlLanguageAlgorithm?: '-lang.html' | false
 }
 
 export interface NavUrlType {
   [lang: string]: {
-    url: string;
+    url: string
     alt: string
-  };
+  }
 }
 
 export type SocialName = 'facebook' | 'youtube'
@@ -26,21 +26,21 @@ export type SocialName = 'facebook' | 'youtube'
  * It is the object type stored in @src/config/config.json
  */
 export interface Config {
-  site: string,
-  base?: string | false,
-  companyName?: string | false,
+  site: string
+  base?: string | false
+  companyName?: string | false
 
   /** logo file, stored in @src/img/** /*.{jpeg,jpg,png,gif,svg}
    * It is the path from img, that is it starts with 'img/'
    * @example 'img/logo/my-logo.svg'
    */
-  logo?: string | false,
+  logo?: string | false
 
   /** sitemap path in the url
    * @example "/sitemap.xml"
    * @default false, meaning no sitemap is used
    */
-  sitemapUrl?: string | false;
+  sitemapUrl?: string | false
 
   /** favicon path in the url
    * @example "/favicon.svg"
@@ -50,34 +50,36 @@ export interface Config {
    *       The change must be done in \@AWT/layouts/Head.astro to update the hardcoded type in the
    *       type="image/svg+xml" tag.
    */
-  faviconUrl?: `${string}.svg` | false,
+  faviconUrl?: `${string}.svg` | false
 
-  languages: LanguageType,
+  languages: LanguageType
 
   socials?: {
-    name: SocialName,
-    href: string,
-    color?: string,
-    size?: number,
-  }[],
+    name: SocialName
+    href: string
+    color?: string
+    size?: number
+  }[]
 
-  navPages?: NavUrlType[] | false,
+  navPages?: NavUrlType[] | false
 
   /** Google Analytics Mesurement Id, which is something like G-xxxxxxxxxx */
-  googleAnalyticsMesurementId?: string | false,
+  googleAnalyticsMesurementId?: string | false
 
-  address?: false | {
-    streetAddress1: string,
-    streetAddress2?: string,
-    addressLocality: string,
-    postalCode: string,
-    addressCountry: string,
-    extra?:string,
-  }
-  phone?: string[] | false,
-  email?: string[] | false,
-  siret?: string[] | false,
+  address?:
+    | false
+    | {
+        streetAddress1: string
+        streetAddress2?: string
+        addressLocality: string
+        postalCode: string
+        addressCountry: string
+        extra?: string
+      }
+  phone?: string[] | false
+  email?: string[] | false
+  siret?: string[] | false
 
   // biome-ignore lint/suspicious/noExplicitAny: any object is allowed here
-  custom?: false | any,
+  custom?: false | any
 }

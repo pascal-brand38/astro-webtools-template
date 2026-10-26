@@ -2,13 +2,13 @@
 // MIT License
 // part of AWT (astro-webtools-template)
 
-import type { Config, LanguageType } from '@AWT/ts/types.ts';
-import configUntyped from '@src/config/config.json' with { type: 'json' };
-const config: Config = configUntyped as Config;
+import type { Config, LanguageType } from '@AWT/ts/types.ts'
+import configUntyped from '@src/config/config.json' with { type: 'json' }
+const config: Config = configUntyped as Config
 
-const languages: LanguageType = config.languages;
+const languages: LanguageType = config.languages
 
-type LangType = typeof languages.langs[number];
+type LangType = (typeof languages.langs)[number]
 
 /** calling langFromAstroUrlPathname(Astro.url.pathname)
  * returns the language of the current page (fr,...) as provided
@@ -16,20 +16,20 @@ type LangType = typeof languages.langs[number];
  */
 function langFromAstroUrlPathname(pathname: string): LangType {
   if (pathname === '/') {
-    return languages.langs[0]; // default language
+    return languages.langs[0] // default language
   }
 
   switch (languages.urlLanguageAlgorithm) {
     case '-lang.html':
       for (const lang of languages.langs) {
         if (pathname.endsWith(`-${lang}.html`)) {
-          return lang;
+          return lang
         }
       }
-      break;
+      break
   }
 
-  return languages.langs[0]; // default language
+  return languages.langs[0] // default language
 }
 
 /** calling astroUrlPathnameToTranslatedPath(Astro.url.pathname, 'fr')
@@ -39,7 +39,7 @@ function langFromAstroUrlPathname(pathname: string): LangType {
 function astroUrlPathnameToTranslatedPath(pathname: string, lang: LangType) {
   const originalLang = langFromAstroUrlPathname(pathname)
   if (originalLang === lang) {
-    return pathname;
+    return pathname
   }
 
   if (pathname === '/') {
@@ -50,22 +50,18 @@ function astroUrlPathnameToTranslatedPath(pathname: string, lang: LangType) {
   }
 
   switch (languages.urlLanguageAlgorithm) {
-    case '-lang.html':
-      const regex = (originalLang === languages.langs[0]) ? /\.html$/ : /\-[a-z][a-z]\.html$/
-      const suffix = (lang === languages.langs[0]) ? '.html' : `-${lang}.html`
+    case '-lang.html': {
+      const regex = originalLang === languages.langs[0] ? /\.html$/ : /-[a-z][a-z]\.html$/
+      const suffix = lang === languages.langs[0] ? '.html' : `-${lang}.html`
       const translatedPath = pathname.replace(regex, suffix)
       if (translatedPath === '/index.html') {
         return '/'
       } else {
         return translatedPath
       }
+    }
   }
 }
 
-export {
-  langFromAstroUrlPathname,
-  astroUrlPathnameToTranslatedPath,
-}
-export type {
-  LangType,
-}
+export { langFromAstroUrlPathname, astroUrlPathnameToTranslatedPath }
+export type { LangType }

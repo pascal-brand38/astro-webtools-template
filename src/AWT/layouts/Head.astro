@@ -24,24 +24,23 @@ const { title, description } = Astro.props;
 </html>
 */
 
-import '@AWT/styles/variables-default.css';
-import '@src/config/variables.css';
-import '@AWT/styles/reset.css';
-import '@AWT/styles/style.css'; // is inlined in resulting html file
-import '@src/styles/style.css';
+import '@AWT/styles/variables-default.css'
+import '@src/config/variables.css'
+import '@AWT/styles/reset.css'
+import '@AWT/styles/style.css' // is inlined in resulting html file
+import '@src/styles/style.css'
 
-import GoogleAnalytics from '@AWT/components/GoogleAnalytics.astro';
-import type { Config } from '@AWT/ts/types.ts';
-import configUntyped from '@src/config/config.json' with { type: 'json' };
-const config: Config = configUntyped as Config;
+import GoogleAnalytics from '@AWT/components/GoogleAnalytics.astro'
+import type { Config } from '@AWT/ts/types.ts'
+import configUntyped from '@src/config/config.json' with { type: 'json' }
+const config: Config = configUntyped as Config
 
 interface Props {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
-const { title, description, } = Astro.props;
-const relCanonical = new URL(Astro.url.pathname, Astro.site);
-
+const { title, description } = Astro.props
+const relCanonical = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <head>
