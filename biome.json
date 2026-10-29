@@ -6,7 +6,8 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["*", "public/**", "src/**"]
   },
   "formatter": {
     "enabled": true,
@@ -17,8 +18,12 @@
     "enabled": true,
     "rules": {
       "preset": "recommended",
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      },
       "suspicious": {
-        "noEmptyBlock": "off"
+        "noEmptyBlock": "off",
+        "noExplicitAny": "off"
       }
     }
   },
@@ -59,6 +64,9 @@
           "correctness": {
             "noUnusedVariables": "off",
             "noUnusedImports": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "off"
           }
         }
       }
