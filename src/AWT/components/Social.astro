@@ -7,16 +7,23 @@
 
 // https://github.com/natemoo-re/astro-icon#readme
 // https://icon-sets.iconify.design/
-// pnpm add @iconify-json/mdi
 // packages that can be used: https://www.npmjs.com/search?q=iconify-json
+//
+// mdi: Material Design Icons - https://icon-sets.iconify.design/mdi/
+//     pnpm add @iconify-json/mdi
+// bxl: Boxicons Brands - https://icon-sets.iconify.design/bxl/
+//     pnpm add @iconify-json/bxl
 
 import { Icon } from 'astro-icon/components'
 import type { SocialName } from '@AWT/ts/types'
 
 interface Socials {
   [name: string]: {
-    icon: string
-    color: string
+    [shape: string]: {
+      icon: string
+      color: string
+      size: number
+    }
   }
 }
 
@@ -24,23 +31,40 @@ interface Socials {
 // color come from https://materialui.co/socialcolors
 const socials: Socials = {
   facebook: {
-    icon: 'mdi:facebook',
-    color: '#1877F2',
+    circle: {
+      icon: 'mdi:facebook',
+      color: '#1877F2',
+      size: 38,
+    },
+    square: {
+      icon: 'bxl:facebook-square',
+      color: '#3b5998',
+      size: 44,
+    },
   },
   youtube: {
-    icon: 'mdi:youtube',
-    color: '#CD201F',
+    circle: {
+      icon: 'mdi:youtube',
+      color: '#CD201F',
+      size: 38,
+    },
+    square: {
+      icon: 'mdi:youtube',
+      color: '#CD201F',
+      size: 38,
+    },
   },
 }
 
 interface Props {
   name: SocialName
+  shape?: 'circle' | 'square'
   color?: string
   size?: number
   href: string
 }
 
-const { name, color = undefined, size, href } = Astro.props
+const { name, shape = 'circle', color = undefined, size, href } = Astro.props
 ---
 
 <a
@@ -50,9 +74,9 @@ const { name, color = undefined, size, href } = Astro.props
   rel="noopener noreferrer">
 
   <Icon
-    name={socials[name].icon}
-    size={ size ?? 38}
-    color={color ?? socials[name].color}
+    name={socials[name][shape].icon}
+    size={ size ?? socials[name][shape].size}
+    color={color ?? socials[name][shape].color}
     />
 
 </a>

@@ -57,6 +57,7 @@ export interface Config {
   socials?: {
     name: SocialName
     href: string
+    shape?: 'circle' | 'square'
     color?: string
     size?: number
   }[]

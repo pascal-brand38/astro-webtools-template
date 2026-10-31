@@ -15,6 +15,7 @@ git remote add AWT git@github.com:pascal-brand38/astro-webtools-template.git
 git fetch AWT
 git tag last-awt remotes/AWT/main
 git push --tags
+pnpm install
 ```
 
 ### Rebasing
@@ -25,7 +26,6 @@ To make use of new development of AWT,
 git checkout main
 git fetch AWT main
 git rebase --onto main last-awt remotes/AWT/main
-git rebase HEAD main
-git tag -d last-awt
-git tag last-awt remotes/AWT/main
+git rebase HEAD main && git push
+git tag -d last-awt && git tag last-awt remotes/AWT/main && git push --tags --force
 ```
