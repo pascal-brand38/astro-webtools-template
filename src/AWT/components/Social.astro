@@ -13,6 +13,8 @@
 //     pnpm add @iconify-json/mdi
 // bxl: Boxicons Brands - https://icon-sets.iconify.design/bxl/
 //     pnpm add @iconify-json/bxl
+// thesvg-color: TheSVG Color Icons - https://icon-sets.iconify.design/thesvg-color/
+//     pnpm add @iconify-json/thesvg-color
 
 import { Icon } from 'astro-icon/components'
 import type { SocialName } from '@AWT/ts/types'
@@ -21,7 +23,7 @@ interface Socials {
   [name: string]: {
     [shape: string]: {
       icon: string
-      color: string
+      color?: string
       size: number
     }
   }
@@ -38,6 +40,28 @@ const socials: Socials = {
     },
     square: {
       icon: 'bxl:facebook-square',
+      color: '#3b5998',
+      size: 44,
+    },
+  },
+  instagram: {
+    circle: {
+      icon: 'thesvg-color:instagram',
+      size: 32,
+    },
+    square: {
+      icon: 'thesvg-color:instagram',
+      size: 32,
+    },
+  },
+  planity: {
+    circle: {
+      icon: 'planity-circle',
+      color: '#1877F2',
+      size: 32,
+    },
+    square: {
+      icon: 'planity-square',
       color: '#3b5998',
       size: 44,
     },
@@ -86,6 +110,7 @@ svg {
   /* align the svg vertically */
   display: inline-block;
   vertical-align: middle;
+  margin: 0 .2rem;
 }
 
 a {

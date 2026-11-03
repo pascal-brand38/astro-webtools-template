@@ -35,8 +35,8 @@ const lang = langFromAstroUrlPathname(Astro.url.pathname)
 <footer class="awt-container awt-footer__container">
   <div class="awt-footer-grid">
     { config.logo &&
-    <div class="hide-on-small-and-down" style="width: 100%; max-width: 200px; height: auto;">
-      <AWTImage name={config.logo} alt={config.companyName ? config.companyName : ''} />
+    <div class="hide-on-small-and-down" >
+      <AWTImage style="max-width: 200px; max-height: 100px;" name={config.logo} alt={config.companyName ? config.companyName : ''} />
     </div>
     }
 

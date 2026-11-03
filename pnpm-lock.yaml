@@ -20,6 +20,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.2.3
         version: 1.2.3
+      '@iconify-json/thesvg-color':
+        specifier: ^1.2.23
+        version: 1.2.23
       astro:
         specifier: ^7.3.5
         version: 7.3.5
@@ -461,6 +464,9 @@ packages:
 
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
+
+  '@iconify-json/thesvg-color@1.2.23':
+    resolution: {integrity: sha512-yYwzzhjnFV+CV7LLhvcEDxnHWhNVl+tNOyoX8h30CVzjKeQTHgbl/O0zlpG2nPzFYtfeUqOQAkchjWJDBLoz1Q==}
 
   '@iconify/tools@5.0.14':
     resolution: {integrity: sha512-wJ4ZE3/HZh2iBqLwG+8FOMHe7CMJAJqwSXZSpPwMdj1gZM3Z4t2hbQMVw4Vm45oQ985qn0g89PUIcDEdKTheBA==}
@@ -1851,6 +1857,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/mdi@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/thesvg-color@1.2.23':
     dependencies:
       '@iconify/types': 2.0.0
 
