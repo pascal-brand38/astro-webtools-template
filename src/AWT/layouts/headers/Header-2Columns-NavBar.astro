@@ -35,9 +35,7 @@ If so, fix it using notepad++:
 
 <header class="awt-container awt-header__container">
   { config.logo &&
-  <div class="awt-header__logo">
-    <AWTImage name={config.logo} alt={config.companyName ? config.companyName : ''} />
-  </div>
+    <AWTImage name={config.logo} alt={config.companyName ? config.companyName : ''} style="max-width: 100%; max-height: 170px;"/>
   }
 
   <div class="awt-header__contact awt-margin-s">
@@ -77,6 +75,7 @@ If so, fix it using notepad++:
     justify-content: center;
     align-items: center;
     margin-top: 0;
+    flex-shrink: 1;
   }
 
   @media (min-width: 601px) {
@@ -88,19 +87,13 @@ If so, fix it using notepad++:
     }
   }
 
-  .awt-header__logo {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-
   /* on mobile, the contact information is centered */
   .awt-header__contact {
     text-align: center;
     font-size: 1.4rem;
     font-weight: bold;
     line-height: 1.5rem;
-
+    flex-shrink: 0;
   }
 
   @media (min-width: 601px) {

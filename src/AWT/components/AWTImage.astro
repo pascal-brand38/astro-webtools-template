@@ -21,16 +21,19 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../../img/**/*.{jpe
 interface Props {
   name: string
   alt?: string
+  style?: string
 }
 
 const props = Astro.props as Props
 ---
 
-<Image src={images[`../../${props.name}`]()} alt={props.alt ?? ''} />
+<Image style={props.style} src={images[`../../${props.name}`]()} alt={props.alt ?? ''} />
 
 <style>
   img {
-    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    width: auto;
     height: auto;
   }
 </style>
