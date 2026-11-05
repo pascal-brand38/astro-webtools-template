@@ -41,7 +41,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     partytown({ config: { forward: ['dataLayer.push'] } }),
-    icon({iconDir: 'src/AWT/icons'}),
+    icon({ iconDir: 'src/AWT/icons' }),
     buildTimeConstants({}),
 
     // add your site specific integrations

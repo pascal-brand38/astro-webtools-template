@@ -81,13 +81,15 @@ const lang = langFromAstroUrlPathname(Astro.url.pathname)
     { (config.siret) &&
     <div> SIRET N°{config.siret.map(d => <span>{d}</span>) } </div>
     }
+    { (config.startYear) &&
     <div>
-    (C) 2019-{astroBuildTimeConstants.internal.fullYear} {config.companyName} -
+    (C) {config.startYear}-{astroBuildTimeConstants.internal.fullYear} {config.companyName} -
     &thinsp;
     {digits2(astroBuildTimeConstants.internal.date)}/{digits2(astroBuildTimeConstants.internal.month)}
     &thinsp;
     {digits2(astroBuildTimeConstants.internal.hours)}:{digits2(astroBuildTimeConstants.internal.minutes)}:{digits2(astroBuildTimeConstants.internal.seconds)}
     </div>
+    }
   </div>
 </footer>
 

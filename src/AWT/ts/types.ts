@@ -29,6 +29,7 @@ export interface Config {
   site: string
   base?: string | false
   companyName?: string | false
+  startYear?: number | false
 
   /** logo file, stored in @src/img/** /*.{jpeg,jpg,png,gif,svg}
    * It is the path from img, that is it starts with 'img/'

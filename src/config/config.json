@@ -2,6 +2,7 @@
   "site": "https://pascal-brand38.github.io",
   "base": "astro-webtools-template",
   "companyName": false,
+  "startYear": false,
   "logo": false,
 
   "sitemapUrl": false,
