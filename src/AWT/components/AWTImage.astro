@@ -22,8 +22,8 @@ if (!image) {
   throw new Error(`Image not found: ${props.name}`)
 }
 
-const imageModule = await image();
-const imageMetadata = imageModule.default;
+const imageModule = await image()
+const imageMetadata = imageModule.default
 
 const width = imageMetadata.width
 const height = imageMetadata.height
