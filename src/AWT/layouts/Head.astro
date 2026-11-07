@@ -29,7 +29,7 @@ import '@src/config/variables.css'
 import '@AWT/styles/reset.css'
 import '@AWT/styles/style.css' // is inlined in resulting html file
 import '@src/styles/style.css'
-
+import { normalizedUrlPathname } from '@AWT/ts/utils'
 import type { Config } from '@AWT/ts/types.ts'
 import configUntyped from '@src/config/config.json' with { type: 'json' }
 const config: Config = configUntyped as Config
@@ -39,7 +39,7 @@ interface Props {
   description: string
 }
 const { title, description } = Astro.props
-const relCanonical = new URL(Astro.url.pathname, Astro.site)
+const relCanonical = new URL(normalizedUrlPathname(Astro.url.pathname), Astro.site)
 ---
 
 <head>

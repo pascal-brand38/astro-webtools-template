@@ -19,3 +19,13 @@ export function getConfigCustom(): any | false {
   }
   return false
 }
+
+export function normalizedUrlPathname(pathname: string): string {
+  if (pathname === '/index.html') {
+    return '/'
+  }
+  if (pathname === '/index/index.html') {
+    return '/'
+  }
+  return pathname
+}
