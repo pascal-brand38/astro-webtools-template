@@ -19,7 +19,7 @@ const currentLang = langFromAstroUrlPathname(Astro.url.pathname)
 { config.languages && config.languages.flags && config.languages.flags.map((flagName, index) => (
      (currentLang !== config.languages.langs[index]) && (
           <span> &nbsp; </span>
-          <a href={astroUrlPathnameToTranslatedPath(Astro.url.pathname, config.languages.langs[index])}>
+          <a href={astroUrlPathnameToTranslatedPath(Astro.url.pathname, config.languages.langs[index])} aria-label={`Translate to ${flagName}`} title={`Translate to ${flagName}`}>
             <Flag flagName={flagName} />
           </a>
     )
