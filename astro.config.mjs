@@ -6,7 +6,6 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import buildTimeConstants from 'astro-build-time-constants'
-import partytown from '@astrojs/partytown' // used for google analytics. Cf https://ricostacruz.com/posts/google-analytics-in-astro
 import icon from 'astro-icon'
 
 import configUntyped from '@src/config/config.json' with { type: 'json' }
@@ -40,7 +39,6 @@ export default defineConfig({
 
   integrations: [
     mdx(),
-    partytown({ config: { forward: ['dataLayer.push'] } }),
     icon({ iconDir: 'src/AWT/icons' }),
     buildTimeConstants({}),
 
