@@ -39,7 +39,7 @@ export default defineConfig({
 
   integrations: [
     mdx(),
-    icon({ iconDir: 'src/AWT/icons' }),
+    icon({ iconDir: 'src' }),
     buildTimeConstants({}),
 
     // add your site specific integrations
