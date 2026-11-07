@@ -5,16 +5,6 @@
 //
 // Add an image, such a logo
 
-/* Example usage to add 2 actions buttons in a row:
-
-import Buttons from '@AWT/components/Buttons.astro'
-<Buttons buttons={[
-  { text: 'More Pictures', href: 'galerie-photos-en.html' },
-  { text: 'Contact us', href: 'contact-en.html' }
-]} />
-
-*/
-
 import { Image } from 'astro:assets'
 const images = import.meta.glob<{ default: ImageMetadata }>('../../img/**/*.{jpeg,jpg,png,gif,svg}')
 
@@ -22,18 +12,37 @@ interface Props {
   name: string
   alt?: string
   style?: string
+  loading?: 'lazy' | 'eager'
 }
 
 const props = Astro.props as Props
+
+const image = images[`../../${props.name}`]
+if (!image) {
+  throw new Error(`Image not found: ${props.name}`)
+}
+
+const imageModule = await image();
+const imageMetadata = imageModule.default;
+
+const width = imageMetadata.width
+const height = imageMetadata.height
 ---
 
-<Image style={props.style} src={images[`../../${props.name}`]()} alt={props.alt ?? ''} />
+{/* aspect-ratio is required to remove CLS */}
+<Image
+  style={`${props.style ?? ''} aspect-ratio: ${width} / ${height};`}
+  src={image()}
+  alt={props.alt ?? ''}
+  loading={props.loading ?? 'lazy'}
+  fetchpriority={props.loading === 'eager' ? 'high' : 'auto'}
+/>
 
-<style>
+<style define:vars={{width, height}}>
   img {
     min-width: 0;
     min-height: 0;
-    width: auto;
-    height: auto;
+    width: auto; /* width as auto so that the logo is left aligned */
+    height: 100%; /* height cannot be auto, otherwise CLS appears */
   }
 </style>
