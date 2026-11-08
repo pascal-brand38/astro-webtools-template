@@ -1,37 +1,4 @@
 {
   "site": "https://pascal-brand38.github.io",
-  "base": "astro-webtools-template",
-  "companyName": false,
-  "startYear": false,
-  "logo": false,
-  "ogImage": false,
-
-  "sitemapUrl": false,
-  "faviconUrl": false,
-
-  "languages": {
-    "langs": ["en"],
-    "flags": false,
-    "urlLanguageAlgorithm": false
-  },
-
-  "socials": [
-    { "name": "facebook", "href": "https://www.facebook.com" },
-    { "name": "youtube", "href": "https://www.youtube.com" }
-  ],
-
-  "navPages": [
-    {
-      "fr": { "url": "/", "alt": "Home" }
-    }
-  ],
-
-  "googleAnalyticsMesurementId": false,
-
-  "address": false,
-  "phone": false,
-  "email": false,
-  "siret": false,
-
-  "custom": false
+  "base": "astro-webtools-template"
 }
