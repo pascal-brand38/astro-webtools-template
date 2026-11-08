@@ -40,6 +40,12 @@ interface Props {
 }
 const { title, description } = Astro.props
 const relCanonical = new URL(normalizedUrlPathname(Astro.url.pathname), Astro.site)
+
+let site = config.site
+if (site && config.base) {
+  site = `${site}/${config.base}`
+}
+const ogImage = (config.ogImage && site) ? `${site}/${config.ogImage}` : undefined
 ---
 
 <head>
@@ -54,6 +60,16 @@ const relCanonical = new URL(normalizedUrlPathname(Astro.url.pathname), Astro.si
   <link rel="canonical" href={relCanonical} />
   {config.sitemapUrl && <link rel="sitemap" href={config.sitemapUrl} />}
   {config.faviconUrl && <link rel="icon" type="image/svg+xml" href={config.faviconUrl} />}
+
+  {/* Open Graph tags provides information to the main social network, such as Twitter, Google+, Facebook... */}
+  <meta property="og:title" content={title}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content={relCanonical}/>
+  { config.companyName && (<meta property="og:site_name" content={config.companyName}/>) }
+  {/* <meta property="og:locale" content="fr_FR"/> */}
+  { ogImage && (<meta property="og:image" content={ogImage}>) }
+  {/* <meta property="og:image:alt" content="Alt description"> */}
+  <meta property="og:description" content={description}>
 
   <slot />
 

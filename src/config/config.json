@@ -4,6 +4,7 @@
   "companyName": false,
   "startYear": false,
   "logo": false,
+  "ogImage": false,
 
   "sitemapUrl": false,
   "faviconUrl": false,

@@ -37,6 +37,12 @@ export interface Config {
    */
   logo?: string | false
 
+  /** image file used for og-stuff
+   * It is stored in public. So an image stored in public/img/og-image.png will
+   * be used with ogImage = 'img/og-image.png'
+   */
+  ogImage?: string | false
+
   /** sitemap path in the url
    * @example "/sitemap.xml"
    * @default false, meaning no sitemap is used
