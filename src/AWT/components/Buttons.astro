@@ -54,6 +54,11 @@ const props = Astro.props as Props
   font-size: 1rem;
   font-weight: bold;
   border-color: var(--awt-color);
+
+  /* fix on apple */
+  text-decoration: none;
+  color: var(--awt-color);
+  font-family: inherit;
 }
 
 .buttons button:hover {
